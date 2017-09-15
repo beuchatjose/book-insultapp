@@ -25,5 +25,9 @@ public class HMParser {
 		HttpEntity entity = response.getEntity();
 		return EntityUtils.toString(entity);
 	}
+	
+	public static void main(String[] args) throws ClientProtocolException, IOException {
+		System.out.println(new HMParser().getSkillsPageContent());
+	}
 
 }

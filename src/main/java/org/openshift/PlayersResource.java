@@ -15,9 +15,7 @@ import java.util.HashMap;
 public class PlayersResource {
     @GET()
     @Produces("application/json")
-    public HashMap<String, String> getInsult() throws ClientProtocolException, IOException {
-        HashMap<String, String> theInsult = new HashMap<String, String>();
-        theInsult.put("players", new HMParser().getSkillsPageContent());
-        return theInsult;
+    public String getInsult() throws ClientProtocolException, IOException {
+        return new HMParser().getSkillsPageContent();
     }
 }
