@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 @RequestScoped
-@Path("/insult")
+@Path("/players")
 public class PlayersResource {
     @GET()
     @Produces("application/json")
