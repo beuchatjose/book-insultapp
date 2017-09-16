@@ -12,22 +12,23 @@ import org.apache.http.util.EntityUtils;
 
 public class HMParser {
 
-	String PLAYERS_LIST_URL = "http://hockeymanager.ch/api/RealPlayers/list";
-	String PLAYERS_STATS_URL = "http://hockeymanager.ch/api/RealPlayers/stats";
-	String STATUS_URL = "http://hockeymanager.ch/api/Games/status";
-	String COUNTRIES_LIST_URL = "http://hockeymanager.ch/api/Countries/list";
 	
-	public String getSkillsPageContent() throws ClientProtocolException, IOException{
-
-		HttpGet request = new HttpGet(PLAYERS_LIST_URL);
+	public String getPageContent(String url){
+		HttpGet request = new HttpGet(url);
 		HttpClient httpClient = new DefaultHttpClient();
-		HttpResponse response = httpClient.execute(request);
-		HttpEntity entity = response.getEntity();
-		return EntityUtils.toString(entity);
-	}
-	
-	public static void main(String[] args) throws ClientProtocolException, IOException {
-		System.out.println(new HMParser().getSkillsPageContent());
+		HttpResponse response;
+		try {
+			response = httpClient.execute(request);
+			HttpEntity entity = response.getEntity();
+			return EntityUtils.toString(entity);
+		} catch (ClientProtocolException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
